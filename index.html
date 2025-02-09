@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/main.css" crossorigin="" data-precedence="next"/>
+        <link rel="icon" href="favicon.ico"/>
+        <title>Will You Be My Valentine?</title>
+        <link rel="apple-touch-icon"/>
+    </head>
+    <body>
+        <div class="container">
+            <section>
+                <div>
+                    <p>♡ Will you be my Valentine? ♡</p>
+                </div>
+                <div class="img-container">
+                    <img fetchPriority="high" width="340" height="200" decoding="async" data-nimg="1" style="color:transparent"src="img/1.gif"/>
+                </div>
+                <div class="button-section">
+                    <table>
+                      <tr>
+                        <td><a href="success.html">
+                            <button class="yes-button button-base button-green">Yes</button>
+                        </a></td>
+                        <td><button id="myButton" class="no-button button-base button-red">No</button></td>
+                      </tr>
+                    </table>
+                    
+                    
+                </div>
+            </section>
+        </div>
+        
+        <script>
+            const button = document.getElementById('myButton');
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            const proximity = 50; // Proximity to trigger move
+            
+            button.addEventListener('mousemove', (e) => {
+              const buttonRect = button.getBoundingClientRect();
+              const centerX = buttonRect.left + buttonRect.width / 2;
+              const centerY = buttonRect.top + buttonRect.height / 2;
+            
+              const distX = Math.abs(e.clientX - centerX);
+              const distY = Math.abs(e.clientY - centerY);
+            
+              if (distX < proximity && distY < proximity) {
+                moveButton();
+              }
+            });
+            
+            
+            function moveButton() {
+              const randomX = Math.random() * maxX;
+              const randomY = Math.random() * maxY;
+            
+              button.style.left = randomX + 'px';
+              button.style.top = randomY + 'px';
+            }
+        </script>
+            
+    </body>
+</html>
